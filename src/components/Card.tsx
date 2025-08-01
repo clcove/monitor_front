@@ -1,4 +1,6 @@
-const Card = (props: {
+import { memo } from "react";
+
+type CardProps = {
   data: {
     title: string;
     description: string;
@@ -7,33 +9,31 @@ const Card = (props: {
     footer2: string;
     footer3: string;
   };
-}) => {
-  const { title, description, occupation, footer1, footer2, footer3 } =
-    props.data;
+};
+
+const Card = ({ data }: CardProps) => {
+  const { title, description, occupation, footer1, footer2, footer3 } = data;
+
   return (
-    <div className="flex-1 flex rounded-[8px] bg-[#fff] card justify-between flex-col">
-      <div className="flex w-full border-b border-b-[#f0f0f0]">
-        <div className=""></div>
-
-        <div className="flex flex-col pl-[24px] pr-[24px] pt-[12px] pb-[12px]">
-          <div className="font-bold text-[16px]">{title}</div>
-
-          <div className="text-[14px] text-[rgba(0,0,0,0.45)]">
-            {description}
-          </div>
-        </div>
+    <div className="flex-1 rounded-[8px] bg-white card flex flex-col justify-between border border-gray-100 shadow-sm">
+      {/* Header */}
+      <div className="border-b border-b-gray-100 px-6 py-3">
+        <h3 className="font-bold text-lg">{title}</h3>
+        <p className="text-sm text-gray-500">{description}</p>
       </div>
 
-      <div className="text-[62px] text-right p-[24px]">{occupation} %</div>
+      {/* Main Content */}
+      <div className="text-5xl font-medium text-right p-6">{occupation}%</div>
 
-      <div className="flex w-full border-t border-t-[#f0f0f0] h-[45px] ">
-        <div className="mt-[12px] mb-[12px] flex-1 text-center text-[rgba(0,0,0,0.45)] text-[14px] border-e border-e-[#f0f0f0]">
+      {/* Footer */}
+      <div className="flex border-t border-t-gray-100 h-11">
+        <div className="flex-1 border-e border-e-gray-100 flex items-center justify-center text-sm text-gray-500">
           {footer1}
         </div>
-        <div className="mt-[12px] mb-[12px] flex-1 text-center text-[rgba(0,0,0,0.45)] text-[14px] border-e border-e-[#f0f0f0]">
+        <div className="flex-1 border-e border-e-gray-100 flex items-center justify-center text-sm text-gray-500">
           {footer2}
         </div>
-        <div className="mt-[12px] mb-[12px] flex-1 text-center text-[rgba(0,0,0,0.45)] text-[14px] ">
+        <div className="flex-1 flex items-center justify-center text-sm text-gray-500">
           {footer3}
         </div>
       </div>
@@ -41,4 +41,4 @@ const Card = (props: {
   );
 };
 
-export default Card;
+export default memo(Card); // ✅ 防止不必要的重渲染
