@@ -37,7 +37,7 @@ function App() {
         footer1: data.processor.coreCount,
         footer2: data.processor.clockSpeed,
         footer3: data.processor.temp,
-        color:"#5965f9",
+        color: "#5965f9",
       },
       memory: {
         title: "内存",
@@ -46,7 +46,7 @@ function App() {
         footer1: data.machine.totalRam,
         footer2: data.machine.clockSpeed,
         footer3: data.machine.swapAmount,
-        color:"#ff5959",
+        color: "#ff5959",
       },
       gpu: {
         title: "GPU",
@@ -55,7 +55,7 @@ function App() {
         footer1: data.graphics.memory,
         footer2: data.graphics.clockSpeed,
         footer3: data.graphics.memoryUsage,
-        color:"#1677ff",
+        color: "#8847f1ff",
       },
       storage: {
         title: "存储",
@@ -64,7 +64,7 @@ function App() {
         footer1: data.storage.total,
         footer2: data.storage.diskCount,
         footer3: data.storage.readAndWrite,
-        color:"#08c18d",
+        color: "#08c18d",
       },
     };
   }, [data]);
@@ -78,7 +78,7 @@ function App() {
   }
 
   return (
-    <FixedAspectRatio width={1920} height={1080}>
+    <FixedAspectRatio width={1200} height={500}>
       <div className="flex min-h-screen flex-col items-center justify-center gap-10 bg-white p-10 bg-[url(@/assets/loginBackGround.png)] bg-cover">
         {/* 第一行：CPU / 内存 / GPU */}
         <div className="flex w-full justify-between gap-4">
@@ -88,29 +88,28 @@ function App() {
         </div>
 
         {/* 第二行：存储 / 硬盘列表 */}
-        <div className="flex w-full justify-between gap-4">
+        <div className="flex w-full justify-between gap-4" >
           <Card data={cardData!.storage} />
 
-          <div className="flex-2 rounded-[8px] bg-white card">
-            <div className="flex border-b border-b-[#f0f0f0] px-6 py-3">
-              <div className="flex flex-col">
-                <h3 className="font-bold text-[16px]">硬盘</h3>
-                <p className="text-[14px] text-[rgba(0,0,0,0.45)]">
-                  我是硬盘的说明
-                </p>
+          <div className="flex-2 rounded-[8px] bg-white card"
+            style={{
+              backgroundColor: "#3c3c3c",
+            }}>
+            <div className="flex border-b  px-6 py-3">
+              <div className="flex flex-col text-white">
+                <h3 className="font-bold text-[18px] font-[600]">硬盘</h3>
               </div>
             </div>
 
-            <div className="overflow-y-auto h-[200px]">
+            <div className="overflow-y-auto h-[150px]">
               {data.hardDisks.length > 0 ? (
                 data.hardDisks.map((item, index) => (
                   <List
                     key={`disk-${index}`}
                     data={{
                       index,
-                      image: `https://api.dicebear.com/7.x/miniavs/svg?seed=${
-                        index + 1
-                      }`,
+                      image: `https://api.dicebear.com/7.x/miniavs/svg?seed=${index + 1
+                        }`,
                       total: item.total,
                       temp: item.temp || "-",
                       write: item.write,

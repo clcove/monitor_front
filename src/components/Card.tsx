@@ -15,7 +15,7 @@ const Card = ({ data }: CardProps) => {
     data;
 
   return (
-    <div className="flex-1 rounded-[20px] bg-white card flex flex-col justify-between border border-gray-100 shadow-sm"
+    <div className="flex-1 rounded-[20px] bg-white card flex flex-col justify-between border border-gray-100 shadow-sm h-[250px]"
       style={{
         backgroundColor: "#3c3c3c",
       }}>

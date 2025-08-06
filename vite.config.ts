@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
       hmr: true,
       proxy: {
         "/dev": {
-          target: "http://192.168.1.252:8199",
+          target: "http://192.168.1.8:8199",
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/dev/, ""),
         },
