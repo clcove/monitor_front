@@ -14,7 +14,7 @@ interface HardDisk {
   model: string;
   serial: string;
   total: string;
-  usage: number; // 使用百分比 (0-100)
+  usage: string; // 使用百分比 (0-100)
   read: string;
   write: string;
   theStorageSpaceYouBelongTo: string;

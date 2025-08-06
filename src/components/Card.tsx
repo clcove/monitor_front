@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 type CardProps = {
   data: {
     title: string;
@@ -41,4 +39,4 @@ const Card = ({ data }: CardProps) => {
   );
 };
 
-export default memo(Card); // ✅ 防止不必要的重渲染
+export default Card; // ✅ 防止不必要的重渲染
