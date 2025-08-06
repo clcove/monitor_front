@@ -37,6 +37,7 @@ function App() {
         footer1: data.processor.coreCount,
         footer2: data.processor.clockSpeed,
         footer3: data.processor.temp,
+        color:"#5965f9",
       },
       memory: {
         title: "内存",
@@ -45,6 +46,7 @@ function App() {
         footer1: data.machine.totalRam,
         footer2: data.machine.clockSpeed,
         footer3: data.machine.swapAmount,
+        color:"#ff5959",
       },
       gpu: {
         title: "GPU",
@@ -53,6 +55,7 @@ function App() {
         footer1: data.graphics.memory,
         footer2: data.graphics.clockSpeed,
         footer3: data.graphics.memoryUsage,
+        color:"#1677ff",
       },
       storage: {
         title: "存储",
@@ -61,6 +64,7 @@ function App() {
         footer1: data.storage.total,
         footer2: data.storage.diskCount,
         footer3: data.storage.readAndWrite,
+        color:"#08c18d",
       },
     };
   }, [data]);
