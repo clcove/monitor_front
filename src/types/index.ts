@@ -59,5 +59,5 @@ export interface SystemInfo {
   graphics: Graphics;
   storage: Storage;
   hardDisks: HardDisk[];
-  networks: NetworkInterface[];
+  networks: NetworkInterface;
 }
